@@ -131,6 +131,24 @@ img {
     animation-fill-mode: forwards;
 }
 
+.white-div-second {
+    position: absolute;
+    background-color: beige;
+    height: 500px;
+    width: 950px;
+    margin: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    left: 208px;
+    animation-name: whitening;
+    animation-duration: 1s;
+    /* animation-delay: 4s;  */
+    z-index: 1;
+    animation-fill-mode: forwards;
+
+}
+
 @keyframes appear {
     /* from { visibility: hidden; } */
     to { visibility: visible; }    
@@ -143,12 +161,30 @@ img {
     position: relative;
     visibility: hidden;
     animation-name: appear;
-    animation-duration: 1s;
+    animation-duration: 3s;
     animation-delay: 0.4s;
-    animation-fill-mode: forwards;
     top: -288px;
     z-index: 2;
     font-size: 4.4rem;
 }
+
+.the-contact {
+    visibility: hidden;
+    position: absolute;
+    z-index: 6;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    animation-name: appear;
+    animation-duration: 3s;
+    animation-delay: 3.4s;
+    top: 300px;
+    left: 460px;
+    animation-fill-mode: forwards;
+    font-size: 1.4em;
+    color: #215732;
+}
+
+
 
 
