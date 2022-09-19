@@ -1,10 +1,27 @@
-export default function secondWhiteOverlay() {
+// import drop from './img/drop.svg';
 
-    const content = document.getElementById('content');
+export default function secondWhiteOverlay(currentPage) {
 
-    const whiteDiv = document.createElement('div');
-    whiteDiv.setAttribute('class', 'white-div-second');
-    content.appendChild(whiteDiv);
+    const overlayContainer = document.querySelector('.all-container');
 
-    return content;
+    const secondOverlay = document.createElement('div');
+    secondOverlay.setAttribute('class', 'second-overlay');
+    overlayContainer.appendChild(secondOverlay);
+    
+    // remove first white-div
+    setTimeout(() => {
+        const removableContent = document.querySelector('.removable-content');
+        while (removableContent.firstElementChild) {
+            // the currentPage will be passed from the changePage function
+            // it define the nav that was clicked
+            if (removableContent.firstElementChild.className.includes(currentPage) == false) {
+                console.log(removableContent.firstElementChild.className);
+                removableContent.firstElementChild.remove();
+            } else {
+                break;
+            }
+        }
+    }, 4000)
+
+    return overlayContainer;
 }

@@ -1,6 +1,10 @@
 import { changePage } from './index.js';
+import contact from './contact.js';
+import home from './home.js';
+import about from './about.js';
+import menu from './menu.js';
 
-function header() {
+export default function header() {
     
     const content = document.getElementById('content');
 
@@ -11,16 +15,22 @@ function header() {
     const ul = document.createElement('ul');
     ul.setAttribute('class', 'nav-bar');
 
-    const NAVBAR = ['HOME','MENU', 'ABOUT', 'CONTACT'];
+
+    // Write..... 
+    const NAVBAR = {
+        'HOME': home,
+        'MENU': menu,
+        'ABOUT': about,
+        'CONTACT': contact,
+    };
     // Create li items and put them inside the ul
-    for (let itemCount = 0; itemCount < 4; itemCount++){
+    for (const eachOption in NAVBAR) {
         let li = document.createElement('li');
-        li.setAttribute('class', `nav-item ${itemCount}`);
+        li.setAttribute('class', `nav-item ${eachOption}`);
         // li.textContent = NAVBAR[itemCount];
         let link = document.createElement('a');
-        // link.setAttribute('href', '#');
-        link.textContent = NAVBAR[itemCount];
-        link.onclick = changePage;
+        link.textContent = eachOption;
+        link.onclick = NAVBAR[eachOption];
         li.appendChild(link);
         ul.appendChild(li);
     }
@@ -30,8 +40,4 @@ function header() {
     content.appendChild(theHeader);
 
     return content;
-}
-
-export {
-    header,
 }

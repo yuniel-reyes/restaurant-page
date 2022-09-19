@@ -1,67 +1,38 @@
-import image1 from './img/firstImg.svg';
-import image2 from './img/secondImg.svg';
-import image3 from './img/thirdImg.svg';
-
+import { changePage } from './change';
+import { inPage } from './index.js';
+import cinnamon from './img/cinnamon.svg';
 
 export default function home() {
 
-    // create center box inside a main tag
-    const content = document.getElementById('content');
+    const thePage = inPage.statePage.home;
+    const currentPage = 'home'
 
 
-    const mainContent = document.createElement('main');
-
-    // First image
-    const divImg1Container = document.createElement('div');
-    divImg1Container.setAttribute('class', 'first-img container')
-    // divImg1Container.textContent = 'Hi, there';
-    const firstImage = document.createElement('img');
-    firstImage.setAttribute('src', image1);
-    firstImage.setAttribute('alt', 'coffee-plant');
-    firstImage.setAttribute('class', 'first-img-img');
-
-    divImg1Container.appendChild(firstImage);
-    mainContent.appendChild(divImg1Container);
-    content.appendChild(mainContent);
-
-    // Logo
+    if (thePage === false) {
+        
+        changePage(currentPage); // pass the called page
     
-    // background-image
-    const backImage = document.createElement('div');
-    backImage.setAttribute('class', 'back-image');
-    const h1 = document.createElement('h1');
-    h1.setAttribute('class', 'back-img-text')
-    h1.textContent = 'ONE COFFEE!';
-    backImage.appendChild(h1);
-
-    mainContent.appendChild(backImage);
-
-
-    // Second image
-    const divImg2Container = document.createElement('div');
-    divImg2Container.setAttribute('class', 'second-img container');
-    const secondImage = document.createElement('img');
-    secondImage.setAttribute('src', image2);
-    secondImage.setAttribute('alt', 'coffee-plan');
-    secondImage.setAttribute('class', 'second-img-img');
-
-    divImg2Container.appendChild(secondImage);
-    mainContent.appendChild(divImg2Container);
-    content.appendChild(mainContent);
-
-    // Third image
-    const divImg3Container = document.createElement('div');
-    divImg3Container.setAttribute('class', 'third-img container');
-    const thirdImage = document.createElement('img');
-    thirdImage.setAttribute('src', image3);
-    thirdImage.setAttribute('alt', 'coffee-plan');
-    thirdImage.setAttribute('class', 'third-img-img');
-
-    divImg3Container.appendChild(thirdImage);
-    mainContent.appendChild(divImg3Container);
-    content.appendChild(mainContent);
-
-
+        // const content = document.getElementById('content');
+        
+        // const theHome = document.createElement('div');
+        // theHome.setAttribute('class', 'the-home to-remove');
+    
+        // // background-image
+        // const h1 = document.createElement('h1');
+        // h1.textContent = 'One Coffee!';
+        // h1.setAttribute('class', 'back-img-text')
+        // theHome.appendChild(h1);
+        // content.appendChild(theHome);
+    
+        // update the state of each page
+        for (const eachState in inPage.statePage) {
+            if (eachState == 'home') {
+                inPage.statePage[eachState] = true;
+            } else {
+                inPage.statePage[eachState] = false;
+            }
+            console.log(`${eachState}: ${inPage.statePage[eachState]}`)
+        }
+    }
     return content;
-
 }
