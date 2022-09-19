@@ -1,5 +1,5 @@
 import { changePage } from "./change.js";
-import { inPage } from "./index.js";
+import { inPage } from "./pageState.js";
 
 export default function contact() {
 

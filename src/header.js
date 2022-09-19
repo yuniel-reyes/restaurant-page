@@ -1,6 +1,6 @@
 import { changePage } from './index.js';
 import contact from './contact.js';
-import home from './home.js';
+import index from './index.js';
 import about from './about.js';
 import menu from './menu.js';
 
@@ -18,10 +18,10 @@ export default function header() {
 
     // Write..... 
     const NAVBAR = {
-        'HOME': home,
+        'HOME': index,
         'MENU': menu,
         'ABOUT': about,
-        'CONTACT': contact,
+        'CONTACT': contact
     };
     // Create li items and put them inside the ul
     for (const eachOption in NAVBAR) {

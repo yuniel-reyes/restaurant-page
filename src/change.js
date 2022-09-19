@@ -5,7 +5,7 @@ import secondWhiteOverlay from './secondWhiteOverlay';
 const changePage = (currentPage) => {
 
     firstWhiteOverlay();
-    setTimeout(secondWhiteOverlay, 2000, currentPage);
+    // setTimeout(secondWhiteOverlay, 2000, currentPage);
 };
 
 
