@@ -1,8 +1,3 @@
-import { changePage } from './index.js';
-import contact from './contact.js';
-import index from './index.js';
-import about from './about.js';
-import menu from './menu.js';
 
 export default function header() {
     
