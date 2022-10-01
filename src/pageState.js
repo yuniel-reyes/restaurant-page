@@ -6,7 +6,6 @@ const inPage = (() => {
             'index': false,
             'menu': false,
             'about': false,
-            'contact': false,
         }
     }
 })();
