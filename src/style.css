@@ -127,3 +127,59 @@ a:hover {
 #brand-name h1 {
     font-size: 115px;
 }
+
+/* MENU */
+.menu-background {
+    background-image: url('./img/background.png');
+}
+#the-menu-first-div {
+    position: absolute;
+    top: 260px;
+    left: 100px;
+    width: 500px;
+    height: 240px;
+    background-color: #215732; 
+    grid-column-start: 2;
+    align-content: center;
+    border-top-left-radius: 30% 24%;
+    border-top-right-radius: 70% 81%;
+    border-bottom-right-radius: 80% 19%;
+    border-bottom-left-radius: 20% 76%;
+}
+
+#the-menu-second-div {
+    position: absolute;
+    top: 205px;
+    left: 170px;
+    width: 314px;
+    height: 351px;
+    background-color: #B7CADB;
+    grid-column-start: 2;
+    align-content: center;
+    border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%;
+}
+
+.cup-container {
+    position: absolute;
+    top: 280px;
+    left: 220px;
+}
+
+.cup-container img {
+    width: 180%;
+}
+
+table {
+    table-layout: fixed;
+    width: 100%;
+    border-collapse: collapse;
+    grid-row-start: 1;
+    grid-row-end: 3;
+    grid-column-start: 3;
+    margin-top: 40px;
+}
+
+td {
+    border-top: 1px solid;
+    padding: 5px;
+}
