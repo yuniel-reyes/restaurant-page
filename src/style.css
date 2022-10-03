@@ -169,17 +169,54 @@ a:hover {
     width: 180%;
 }
 
-table {
-    table-layout: fixed;
-    width: 100%;
-    border-collapse: collapse;
-    grid-row-start: 1;
-    grid-row-end: 3;
+.the-menu {
+    display: grid;
     grid-column-start: 3;
+    grid-row-start: 1;
+     grid-row-end: 3;
     margin-top: 40px;
 }
 
-td {
+.rows {
     border-top: 1px solid;
-    padding: 5px;
+    overflow: hidden;
+    height: 43px;
 }
+
+.rows:hover .spans, .rows:hover .test {
+    /* first animation */
+    animation-name: moveToTop;
+    animation-duration: 1s;
+    animation-fill-mode: forwards;
+
+    /* second animation: move 
+    text from right to left */
+}
+
+
+
+.spans {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    padding: 12px;
+    cursor: pointer;
+    margin: 0;
+    /* padding: 0; */
+}
+
+.test {
+    font-size: 20px;
+    width: 650px;
+}
+
+/* .spans:hover {
+    animation-name: moveToTop;
+    animation-duration: 1s;
+    animation-fill-mode: forwards;
+} */
+
+@keyframes moveToTop {
+    from {transform: translateY(0);}
+    to {transform: translateY(-30px);}
+}
+

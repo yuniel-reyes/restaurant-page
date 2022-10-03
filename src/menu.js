@@ -2,6 +2,7 @@ import { inPage } from './pageState.js';
 // import header from './header.js';
 import updateStatus from './updateStatus.js';
 import firstCup from './img/firstCup.svg';
+import cupEffect from './cupEffect.js';
 
 export default function menu() {
 
@@ -59,25 +60,36 @@ export default function menu() {
                         'MACCHIATO', 'FLAT WHITE', 'FRAPPE', 
                         'LATTE', 'MOCHA', 'AFFOGATO'];
 
-        const menuTable = document.createElement('table');
-        // const tableBody = document.createElement('tbody');
+        const menu = document.createElement('div');
+        menu.setAttribute('class', 'the-menu');
 
         COFFEES.forEach(coffee => {
-            const row = document.createElement('tr');
-            const data1 = document.createElement('td');
+            const row = document.createElement('div');
+            row.setAttribute('class', `${coffee} rows`);
+
+            const spans = document.createElement('div');
+            spans.setAttribute('class', 'spans');
+            
+            const data1 = document.createElement('span');
             data1.textContent = coffee;
-            const data2 = document.createElement('td');
+            const data2 = document.createElement('span');
             data2.textContent = 'DTIERRA';
-            const data3 = document.createElement('td');
+            const data3 = document.createElement('span');
             data3.textContent = 'zero calories'
-            row.appendChild(data1);
-            row.appendChild(data2);
-            row.appendChild(data3);
-            menuTable.appendChild(row);
-            // content.appendChild(tableBody);
+            spans.appendChild(data1);
+            spans.appendChild(data2);
+            spans.appendChild(data3);
+            spans.addEventListener('mouseover', cupEffect);
+            row.appendChild(spans);
+
+            const test = document.createElement('div');
+            test.setAttribute('class', 'test')
+            test.textContent = 'INSERT TEXT IN THE ROW WITH A MOVING TO THE LEFT EFFECT';
+            row.appendChild(test);
+
+            menu.appendChild(row);
         })
-        // menuTable.appendChild(tableBody);        
-        content.appendChild(menuTable);
+        content.appendChild(menu);
 
 
 
