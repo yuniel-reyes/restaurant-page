@@ -1,10 +1,10 @@
 import {inPage} from './pageState.js';
 import header from './header';
+import updatePage from './updatePage.js';
 import style from './style.css';
 import updateStatus from './updateStatus.js';
-// import background from './img/background.jpg';
 
-// The home function render the home nav 
+// The index function render the home page 
 function index() {
 
     // get state of the page
@@ -16,6 +16,9 @@ function index() {
 
         const content = document.getElementById('content');
         document.body.setAttribute('class', 'body-back-ground');
+
+        // remove all content except headers
+        updatePage();
 
         const theHome = document.createElement('main');
         theHome.setAttribute('id', 'the-home');
@@ -38,34 +41,10 @@ function index() {
         brandNameText.textContent = 'DTIERRA';
         bigBrandName.appendChild(brandNameText);
 
-        // const imageNames = {'leaf1': image0, 'leaf2':image1, 'leaf3':image2,
-        //                     'front1':image3, 'front2':image4 }; 
-
-        // First image
-        // let counter = 0;
-        // for (const image in imageNames) {
-        //     let div = document.createElement('div');
-        //     div.setAttribute('class', `${image}`);
-        //     let img = document.createElement('img');
-        //     img.setAttribute('src', `${imageNames[image]}`);
-        //     img.setAttribute('alt', `${image}`);
-        //     img.setAttribute('class', `${image} image`);
-
-        //     div.appendChild(img);
-        //     mainContent.appendChild(div);
-        //     content.appendChild(mainContent);
-        // }
 
         // Change the status of all pages according
         // to the clicked one
         updateStatus(currentPage);
-        // for (const eachState in inPage.statePage) {
-        //     if (eachState == 'home') {
-        //         inPage.statePage[eachState] = true;
-        //     } else {
-        //         inPage.statePage[eachState] = false;
-        //     }
-        // }
 
         theHome.appendChild(firstHeroText);
         theHome.appendChild(secondHeroTextContainer);

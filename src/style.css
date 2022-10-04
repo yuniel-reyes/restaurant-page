@@ -129,9 +129,11 @@ a:hover {
 }
 
 /* MENU */
+
 .menu-background {
     background-image: url('./img/background.png');
 }
+
 #the-menu-first-div {
     position: absolute;
     top: 260px;
@@ -175,6 +177,7 @@ a:hover {
     grid-row-start: 1;
      grid-row-end: 3;
     margin-top: 40px;
+    color: #215732;;
 }
 
 .rows {
@@ -183,17 +186,32 @@ a:hover {
     height: 43px;
 }
 
+@keyframes moveToTop {
+    from {transform: translateY(0px);}
+    to {transform: translateY(-30px);}
+}
+
+@keyframes moveToBottom {
+    from {transform: translateY(-30px);}
+    to {transform: translateY(0px);}
+}
+
+/* Move each coffee to top on hover */
 .rows:hover .spans, .rows:hover .test {
     /* first animation */
     animation-name: moveToTop;
-    animation-duration: 1s;
+    animation-duration: .2s;
     animation-fill-mode: forwards;
-
-    /* second animation: move 
-    text from right to left */
 }
 
-
+/* Move each coffee to bottom when on hover
+effect is done */
+.rows .spans, .rows .test {
+    /* first animation */
+    animation-name: moveToBottom;
+    animation-duration: .2s;
+    animation-fill-mode: forwards;
+}
 
 .spans {
     display: grid;
@@ -201,22 +219,47 @@ a:hover {
     padding: 12px;
     cursor: pointer;
     margin: 0;
-    /* padding: 0; */
+}
+
+.data3 {
+    display: flex;
+    align-content: center;
+    justify-content: center;
+    gap: 15px;
+}
+
+.sugar-free, .low-calories, .bio {
+    width: 15%;
 }
 
 .test {
     font-size: 20px;
-    width: 650px;
+    width: 3000px;
+    cursor: pointer;
+    color: #8b4513;
 }
 
-/* .spans:hover {
-    animation-name: moveToTop;
-    animation-duration: 1s;
-    animation-fill-mode: forwards;
-} */
-
-@keyframes moveToTop {
-    from {transform: translateY(0);}
-    to {transform: translateY(-30px);}
+.runn-text-1, .runn-text-2, .runn-text-3 {
+    animation-duration: 10s;
+    animation-timing-function: linear;
+    animation-delay: 0s;
+    animation-iteration-count: infinite;
+    animation-direction: normal;
+    animation-fill-mode: none;
+    animation-play-state: running;
+    animation-name: scroll;
+    position: absolute;
 }
 
+.runn-text-2 {
+    left: 30%;
+}
+
+.runn-text-3 {
+    left: 50%;
+}
+
+@keyframes scroll {
+    0% {transform: translate(0,0);}
+    100% {transform: translate(-900px,0);}
+  }
