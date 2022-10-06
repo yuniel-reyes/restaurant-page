@@ -25,4 +25,12 @@ export default function cupEffectIn(e) {
     // show class
     const toggleThis = document.querySelector(`.each-img-container${thisImage}`);
     toggleThis.classList.toggle('show');
+
+    setTimeout(() =>{
+        const toggleSteam = document.querySelectorAll('.steam-list-item');
+        toggleSteam.forEach(item => {
+            item.classList.toggle('show-steam');
+        });
+    }, 500)
+
 }

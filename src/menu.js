@@ -147,7 +147,17 @@ export default function menu() {
         }
         content.appendChild(imgBigContainer);
 
-        // 
+        // the list for the steam
+        const steamListContainer = document.createElement('div');
+        steamListContainer.setAttribute('class', 'list-container');
+        const steamList = document.createElement('ul')
+        for (let counter = 0; counter < 2; counter++) {
+            const listItem = document.createElement('li');
+            listItem.setAttribute('class', 'steam-list-item')
+            steamList.appendChild(listItem);
+        } 
+        steamListContainer.appendChild(steamList);
+        content.appendChild(steamListContainer);
 
         // Change the status of all pages according
         // to the clicked one

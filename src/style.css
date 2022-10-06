@@ -296,3 +296,49 @@ effect is done */
 }
 
 
+/* STEAM */
+.list-container {
+    grid-column-start: 2;
+    grid-row-start: 2;
+    width: min-content;
+    height: min-content;
+    position: relative;
+    left: 200px;
+    top:62px;
+}
+
+.list-container ul {
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.show-steam {                                  /* .steam-list-item */
+    background-color: #a8a4a4;
+    width: 10px;
+    height: 10px;
+    border-radius: 10px;
+    box-shadow: 10px 10px 20px 20px #a8a4a4;
+    opacity: 0;
+
+}
+
+.list-container ul li {
+    animation-name: steam1;
+    animation-duration: 3s;
+    /* animation-delay: 20s; */
+    animation-iteration-count: infinite;
+    animation-timing-function: ease-in-out;
+    
+}
+
+@keyframes steam1 {
+    0% {transform: translateY(0); opacity: .7;}
+    50% {transform: translateY(-20px); opacity: 0;}
+}
+
+
+
+
