@@ -1,10 +1,22 @@
 import { inPage } from './pageState.js';
 import updatePage from './updatePage.js';
 import updateStatus from './updateStatus.js';
-import cupEffect from './cupEffect.js';
+import cupEffectIn from './cupEffectIn.js';
+import cupEffectOut from './cupEffectOut.js'
 import sugarFree from './img/sugarFree.svg';
 import lowCalories from './img/lowCalories.svg';
 import bio from './img/bio.svg';
+
+// import cups images
+import AMERICANO from './img/americano.svg';
+import CAPPUCCINO from './img/cappuccino.svg';
+import MACCHIATO from './img/macchiato.svg';
+import EXPRESSO from './img/expresso.svg';
+import FLATWHITE from './img/flatWhite.svg';
+import MOCHA from './img/mocha.svg';
+import LATTE from './img/latte.svg';
+
+
 
 export default function menu() {
 
@@ -48,16 +60,29 @@ export default function menu() {
                          'CAPPUCCINO':'A LAYER OF FOAM COMBINED WITH WARMING MILK AND A BREWED EXPRESSO. YUMMY!',
                          'EXPRESSO': 'A SMALL, STRONG DRINK MADE USING GROUND COFFEE UNDER HIGH WATER PRESSURE', 
                          'MACCHIATO': 'AN EXPRESSO WITH A SMALL AMOUNT OF FOAMED MILK. DELICIOUS, HMMM!', 
-                         'FLAT WHITE': 'A SMALL, STRONG LATTE WITH A TOUCH OF LATTE ART.  ART AND COFFEE',
+                         'FLATWHITE': 'A SMALL, STRONG LATTE WITH A TOUCH OF LATTE ART.  ART AND COFFEE',
                          'LATTE': 'MORE MILK, LESS FOAM AND COFFEE. MORE MILK, LESS FOAM AND COFFEE. READY? GO!', 
                          'MOCHA': 'A CHOCOLATE-FLAVOURED COFFEE. YES, A CHOCOLATE-FLAVOURED COFFEE. GO NOW!',};
 
+        const images = {
+            'AMERICANO': AMERICANO,
+            'CAPPUCCINO': CAPPUCCINO,
+            'MACCHIATO': MACCHIATO,
+            'EXPRESSO': EXPRESSO,
+            'FLATWHITE': FLATWHITE,
+            'MOCHA': MOCHA, 
+            'LATTE': LATTE, 
+        }
+
+        // THE MENU
         const menu = document.createElement('div');
         menu.setAttribute('class', 'the-menu');
 
         for (const eachCoffe in COFFEES) {
             const row = document.createElement('div');
             row.setAttribute('class', `${eachCoffe} rows`);
+            row.addEventListener('mouseenter', cupEffectIn);
+            row.addEventListener('mouseleave', cupEffectOut);
 
             const spans = document.createElement('div');
             spans.setAttribute('class', 'spans');
@@ -67,7 +92,7 @@ export default function menu() {
             const data2 = document.createElement('span');
             data2.textContent = 'DTIERRA';
 
-            // images
+            // badge images
             const data3 = document.createElement('div');
             data3.setAttribute('class', 'data3');
             const img1 = document.createElement('img');
@@ -85,12 +110,13 @@ export default function menu() {
             spans.appendChild(data1);
             spans.appendChild(data2);
             spans.appendChild(data3);
-            spans.addEventListener('mouseover', cupEffect);
             row.appendChild(spans);
 
             // RUNNING TEXT
             const runningTextContainer = document.createElement('div');
             runningTextContainer.setAttribute('class', 'test');
+            // runningTextContainer.addEventListener('mouseleave', cupEffectOut);
+
             const runnText1 = document.createElement('span');
             runnText1.setAttribute('class', 'runn-text-1');
             const runnText2 = document.createElement('span')
@@ -104,8 +130,24 @@ export default function menu() {
 
             menu.appendChild(row);
         }
-
         content.appendChild(menu);
+
+
+        // THE IMAGES FOR CUP EFFECT
+        const imgBigContainer = document.createElement('div');
+        imgBigContainer.setAttribute('class', 'img-container');
+        for (const eachImage in images) {
+            const imgEachContainer = document.createElement('div');
+            imgEachContainer.setAttribute('class', `each-img-container${eachImage}`);
+            const img = document.createElement('img');
+            img.setAttribute('src', images[eachImage]);
+            img.setAttribute('class', `the${eachImage}`);
+            imgEachContainer.appendChild(img);
+            imgBigContainer.appendChild(imgEachContainer);                              
+        }
+        content.appendChild(imgBigContainer);
+
+        // 
 
         // Change the status of all pages according
         // to the clicked one

@@ -262,4 +262,37 @@ effect is done */
 @keyframes scroll {
     0% {transform: translate(0,0);}
     100% {transform: translate(-900px,0);}
-  }
+}
+
+/* IMAGE CUP EFFECT */
+
+.img-container {
+    position: absolute;
+    left: 232px;
+    top: -250px;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr;
+}
+
+.img-container div {
+    grid-column-start: 1;
+    grid-row-start: 1;
+}
+
+.img-container img {
+    width: 170%;
+}
+
+.show {
+    animation-name: cupDown;
+    animation-duration: .4s;
+    animation-fill-mode: forwards;
+}
+
+@keyframes cupDown {
+    0%  {transform: translateY(0px);}
+    100% {transform: translateY(540px);}  
+}
+
+
