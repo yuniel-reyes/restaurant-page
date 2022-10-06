@@ -3,6 +3,7 @@ import header from './header';
 import updatePage from './updatePage.js';
 import style from './style.css';
 import updateStatus from './updateStatus.js';
+import info from './img/info.svg';
 
 // The index function render the home page 
 function index() {
@@ -40,6 +41,19 @@ function index() {
         bigBrandName.setAttribute('id','brand-name');
         brandNameText.textContent = 'DTIERRA';
         bigBrandName.appendChild(brandNameText);
+
+        // TOOLTIP PROJECT INFO
+        const toolTipContainer = document.createElement('div');
+        toolTipContainer.setAttribute('class', 'tooltip-container');
+        const tooltipIcon = document.createElement('img');
+        tooltipIcon.setAttribute('class', 'tooltip-icon');
+        tooltipIcon.setAttribute('src', info);
+        const tooltipText = document.createElement('span');
+        tooltipText.setAttribute('class', 'tooltip-text');
+        tooltipText.textContent = 'This is a project for TOP';
+        toolTipContainer.appendChild(tooltipIcon);
+        toolTipContainer.appendChild(tooltipText);
+        content.appendChild(toolTipContainer);
 
 
         // Change the status of all pages according

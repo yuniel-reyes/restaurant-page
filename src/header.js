@@ -1,6 +1,7 @@
 import { index } from "./index.js";
 import drop from './img/drop.svg'
 import menu from './menu.js';
+import about from './about.js';
 
 
 export default function header() {
@@ -45,7 +46,7 @@ export default function header() {
     const NAVBAR = {
         'HOME': index,
         'MENU': menu,
-        'ABOUT': 'about'
+        'ABOUT': about,
     };
     // Create li items and put them inside the ul
     for (const eachOption in NAVBAR) {

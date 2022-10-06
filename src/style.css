@@ -340,5 +340,96 @@ effect is done */
 }
 
 
+/* ABOUT PAGE */
 
+#about-text-container {
+    grid-column-start: 2;
+    grid-row-start: 2;
+    grid-column-end: 4;
+    display: flex;
+    flex-direction: column;
+    width: max-content;
+    justify-content: center;
+    position: relative;
+    left: 180px;
+}
 
+#about-text-container h1 {
+    padding: 0;
+    margin: 0;
+    font-size: 50px;
+    color: #215732;
+}
+
+/* TOOLTIP */
+.tooltip-container {
+    grid-column-start: 4;
+    grid-row-start: 3;
+    width: max-content;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: flex-end;
+    position: relative;
+    left: 90px;
+    top: 20px;
+}
+
+.tooltip-container img {
+    width: 8%;
+    cursor: pointer;
+}
+
+.tooltip-icon:hover + .tooltip-text {
+    visibility: visible;
+}
+
+.tooltip-text {
+    position: absolute;
+    width: 200px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: black;
+    color: white;
+    border-radius: 10px;
+    padding: 6px;
+    right: 160px;
+    top: 191px;
+    visibility: hidden;
+}
+
+.tooltip-container-menu {
+    grid-column-start: 3;
+    grid-column-end: 4;
+    grid-row-start: 3;
+    width: max-content;
+    display: flex;
+    justify-content: end;
+    align-items: end;
+    position: relative;
+    left: 407px;
+    top: 3px;
+}
+
+.tooltip-container-menu img {
+    width: 8%;
+}
+
+.tooltip-text-menu {
+    position: absolute;
+    width: 200px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: black;
+    color: white;
+    border-radius: 10px;
+    padding: 6px;
+    right: 20px;
+    top: 125px;
+    visibility: hidden;
+}
+
+.tooltip-icon-menu:hover + .tooltip-text-menu {
+    visibility: visible;
+}

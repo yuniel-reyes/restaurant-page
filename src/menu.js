@@ -6,6 +6,8 @@ import cupEffectOut from './cupEffectOut.js'
 import sugarFree from './img/sugarFree.svg';
 import lowCalories from './img/lowCalories.svg';
 import bio from './img/bio.svg';
+import image from './img/image.svg';
+
 
 // import cups images
 import AMERICANO from './img/americano.svg';
@@ -32,10 +34,12 @@ export default function menu() {
         // remove all content except headers
         updatePage();
 
-        // Change background
+        // Change background if comming from home
         const body = document.getElementsByTagName('body');
-        document.body.classList.toggle('body-back-ground');
-        document.body.classList.toggle('menu-background');
+        if (body[0].classList.contains('body-back-ground')) {
+            document.body.classList.toggle('body-back-ground');
+            body[0].classList.toggle('menu-background');
+        }
 
 
         // Lets create the menu
@@ -158,6 +162,20 @@ export default function menu() {
         } 
         steamListContainer.appendChild(steamList);
         content.appendChild(steamListContainer);
+
+        // TOOLTIP PROJECT INFO
+        const toolTipContainer = document.createElement('div');
+        toolTipContainer.setAttribute('class', 'tooltip-container-menu');
+        const tooltipIcon = document.createElement('img');
+        tooltipIcon.setAttribute('class', 'tooltip-icon-menu');
+        tooltipIcon.setAttribute('src', image);
+        const tooltipText = document.createElement('span');
+        tooltipText.setAttribute('class', 'tooltip-text-menu');
+        tooltipText.textContent = 'Each one of the healthy food badge are Image by Freepik';
+        toolTipContainer.appendChild(tooltipIcon);
+        toolTipContainer.appendChild(tooltipText);
+        content.appendChild(toolTipContainer);
+        
 
         // Change the status of all pages according
         // to the clicked one
